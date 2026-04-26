@@ -1,0 +1,257 @@
+// Copyright 2025 - Horvat Damien
+// License LGPL-3 - See LICENSE file for full copyright and licensing details.
+
+$cc-color-critical: #ef4444;
+$cc-color-high: #f59e0b;
+$cc-color-medium: #3b82f6;
+$cc-color-low: #6b7280;
+
+$cc-color-activity: #8b5cf6;
+$cc-color-task: #10b981;
+
+.o_command_center_kanban {
+    .o_kanban_group {
+        &[data-value="critical"] {
+            .o_kanban_header {
+                background-color: rgba($cc-color-critical, 0.1);
+                border-top: 3px solid $cc-color-critical;
+            }
+        }
+
+        &[data-value="high"] {
+            .o_kanban_header {
+                background-color: rgba($cc-color-high, 0.1);
+                border-top: 3px solid $cc-color-high;
+            }
+        }
+
+        &[data-value="medium"] {
+            .o_kanban_header {
+                background-color: rgba($cc-color-medium, 0.1);
+                border-top: 3px solid $cc-color-medium;
+            }
+        }
+
+        &[data-value="low"] {
+            .o_kanban_header {
+                background-color: rgba($cc-color-low, 0.1);
+                border-top: 3px solid $cc-color-low;
+            }
+        }
+    }
+
+    .o_kanban_record {
+        margin-bottom: 8px;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+        &:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+    }
+}
+
+.o_cc_card_aside {
+    display: flex;
+    align-items: flex-start;
+    padding: 12px 8px 12px 12px;
+}
+
+.o_cc_card_main {
+    flex: 1;
+    padding: 12px 12px 12px 0;
+}
+
+.o_cc_source_icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: white;
+
+    &.o_cc_source_activity {
+        background-color: $cc-color-activity;
+    }
+
+    &.o_cc_source_task {
+        background-color: $cc-color-task;
+    }
+}
+
+.o_cc_card_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 12px;
+}
+
+.o_cc_priority_badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+
+    &.o_cc_priority_critical {
+        background-color: $cc-color-critical;
+        color: white;
+    }
+
+    &.o_cc_priority_high {
+        background-color: $cc-color-high;
+        color: white;
+    }
+
+    &.o_cc_priority_medium {
+        background-color: $cc-color-medium;
+        color: white;
+    }
+
+    &.o_cc_priority_low {
+        background-color: $cc-color-low;
+        color: white;
+    }
+}
+
+.o_cc_deadline {
+    color: #6b7280;
+    font-size: 11px;
+
+    i {
+        color: #9ca3af;
+    }
+}
+
+.o_cc_card_title {
+    margin-bottom: 6px;
+    font-size: 14px;
+    line-height: 1.4;
+
+    strong {
+        color: #1f2937;
+    }
+}
+
+.o_cc_card_source {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 8px;
+    font-size: 12px;
+}
+
+.o_cc_type_label {
+    font-size: 11px;
+    color: #6b7280;
+
+    &.o_cc_type_activity {
+        color: $cc-color-activity;
+    }
+
+    &.o_cc_type_task {
+        color: $cc-color-task;
+    }
+}
+
+.o_cc_project_label {
+    font-size: 11px;
+    color: #6b7280;
+
+    i {
+        color: #9ca3af;
+    }
+}
+
+.o_cc_overdue_badge {
+    margin-bottom: 8px;
+
+    .badge {
+        font-size: 10px;
+        padding: 2px 6px;
+    }
+}
+
+.o_cc_card_partner {
+    font-size: 12px;
+    color: #4b5563;
+    margin-bottom: 8px;
+
+    i {
+        color: #9ca3af;
+    }
+}
+
+.o_cc_card_footer {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.o_cc_btn_done,
+.o_cc_btn_view {
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 4px;
+
+    i {
+        font-size: 11px;
+    }
+}
+
+.o_cc_btn_done {
+    &:hover {
+        background-color: darken(#10b981, 10%);
+    }
+}
+
+.o_list_view {
+    .o_data_row {
+        &.text-danger {
+            td {
+                color: $cc-color-critical !important;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 768px) {
+    .o_cc_card_header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .o_cc_card_footer {
+        flex-direction: column;
+
+        .btn {
+            width: 100%;
+        }
+    }
+}
+
+.o_dark {
+    .o_cc_card_title strong {
+        color: #f3f4f6;
+    }
+
+    .o_cc_deadline,
+    .o_cc_type_label,
+    .o_cc_project_label,
+    .o_cc_card_partner {
+        color: #9ca3af;
+    }
+
+    .o_cc_card_footer {
+        border-top-color: #374151;
+    }
+}

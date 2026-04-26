@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2025 PlantBasedStudio
+     License OPL-1 - See LICENSE file for full copyright and licensing details. -->
+<odoo>
+
+    <record id="action_command_center_item" model="ir.actions.act_window">
+        <field name="name">My Tasks</field>
+        <field name="res_model">command.center.item</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="search_view_id" ref="view_command_center_item_search"/>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                You're all caught up!
+            </p>
+            <p>
+                No activities or tasks need your attention right now.
+                <br/>
+                Create activities in other Odoo apps or project tasks to see them here.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_command_center_root"
+            name="Command Center"
+            web_icon="command_center_lite,static/description/icon.png"
+            sequence="5"/>
+
+    <menuitem id="menu_command_center_items"
+            name="My Tasks"
+            parent="menu_command_center_root"
+            action="action_command_center_item"
+            sequence="10"/>
+
+</odoo>

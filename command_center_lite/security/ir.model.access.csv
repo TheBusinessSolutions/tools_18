@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_command_center_item_user,command.center.item.user,model_command_center_item,base.group_user,1,1,0,0
+access_command_center_delegate_wizard,command.center.delegate.wizard,model_command_center_delegate_wizard,base.group_user,1,1,1,1
